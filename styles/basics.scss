@@ -1,0 +1,12 @@
+$backgroundColor: rgba(32, 30, 41, 1);
+$btn1: rgba(69, 59, 231, 1);
+$btn2: rgba(102, 101, 214, 1);
+$boldText: rgba(71, 74, 97, 1);
+$textcolor: rgba(251, 251, 251, 1);
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
