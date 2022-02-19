@@ -32,12 +32,12 @@ main {
         font-weight: 600;
     }
     .example_desc {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
     }
     .small_font {
         font-size: 12px;
     }
-    span {
+    .span {
         color: $textHighlight;
         font-weight: bold;
     }
@@ -47,7 +47,7 @@ main {
     }
     img {
         position: absolute;
-        bottom: -132px;
+        bottom: -80px;
         right: -180px;
     }
 }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
 @-webkit-keyframes stop {
   70% {
     border-radius: 6px;
@@ -47,11 +48,11 @@
   margin: auto;
 }
 
-.recorder-container #btn {
+.recorder-container #record {
   display: none;
 }
 
-.recorder-container #btn + label:before {
+.recorder-container #record + label:before {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -66,7 +67,7 @@
   cursor: pointer;
 }
 
-.recorder-container #btn + label:after {
+.recorder-container #record + label:after {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -79,13 +80,48 @@
   cursor: pointer;
 }
 
-.recorder-container #btn:checked + label:after {
+.recorder-container #record:checked + label:after {
   -webkit-animation: stop 0.5s infinite cubic-bezier(0.4, -0.9, 0.9, 1);
           animation: stop 0.5s infinite cubic-bezier(0.4, -0.9, 0.9, 1);
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+.progress, .progress_fill {
+  width: 350px;
+  height: 6px;
+  border-radius: 3px;
+  background: black;
+  -webkit-transition: width .1s linear;
+  transition: width .1s linear;
+  margin: auto;
+}
+
+.progress_fill {
+  background: -webkit-gradient(linear, left top, right top, from(#EF5F5F), color-stop(82.68%, #823030));
+  background: linear-gradient(90deg, #EF5F5F 0%, #823030 82.68%);
+  position: absolute;
+  width: 0px;
+}
+
+.recording_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+  margin: 0 100px;
 }
 
 html {
@@ -128,14 +164,14 @@ main .example {
 }
 
 main .example_desc {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 main .small_font {
   font-size: 12px;
 }
 
-main span {
+main .span {
   color: #6665d6;
   font-weight: bold;
 }
@@ -146,7 +182,7 @@ main .image {
 
 main img {
   position: absolute;
-  bottom: -132px;
+  bottom: -80px;
   right: -180px;
 }
 

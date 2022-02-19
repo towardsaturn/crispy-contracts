@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/record.css">
+    <script src="../record.js" defer></script>
     <title>Atlas</title>
 </head>
 <body>
@@ -24,14 +25,24 @@
         <h2>Hi, there.</h2> 
         <p>Record a short message below within one minute. Include your name, the name of the other party, amount of money, currency, interest rate and due date.</p>
         <p class="example">Example message:</p>
-        <p class="example_desc">My name is <span>Jake</span>. I want to lend <span>fifty dollars USD</span> to <span>Sasha</span> <br>with a <span>3%</span> interest rate, due on <span>March 20, 2022</span>.</p>
+        <p class="example_desc">My name is <span class="span">Jake</span>. I want to lend <span class="span">fifty dollars USD</span> to <span class="span">Sasha</span> <br>with a <span class="span">3%</span> interest rate, due on <span class="span">March 20, 2022</span>.</p>
         <!-- button here -->
+        <div class="recording_bar">
+            <p class="time">
+                <span class="minutes">00</span>:<span class="seconds">00</span>
+            </p>
+            <div>
+                <div class="progress_fill" id="progress_fill"></div>
+                <div class="progress" id="progress"></div>
+            </div>
+            <p>01:00</p>
+        </div>
         <div class="recorder-container">
-            <input type="checkbox" id="btn"/>
-            <label for="btn"></label>
+            <input type="checkbox" id="record"/>
+            <label for="record" id="label" onclick="timer()"></label>
         </div>
         <p class="small_font">CLICK TO RECORD</p>
-
+        
         <div class="image">
             <img class="dogcoin" src="../images/dogcoin.png" alt="coin">
         </div>

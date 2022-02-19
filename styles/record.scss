@@ -1,3 +1,5 @@
+@import './basics.scss';
+
 $white: rgba(251, 251, 251, 1);
 $red: rgba(231, 121, 121, 1);
 
@@ -58,10 +60,10 @@ $bezier: cubic-bezier(0.4, -0.9, 0.9, 1);
     height: $cont-size;
     margin: auto;
 
-    #btn {
+    #record {
         display: none;
 
-        & + label:before {
+        & + label:before {  
             @include center($outer-size);
             content: "";
             -webkit-transform: translate(-$border-size, -$border-size);
@@ -87,4 +89,26 @@ $bezier: cubic-bezier(0.4, -0.9, 0.9, 1);
             }
         }
     }
+}
+
+.progress {
+    width: 350px;
+    height: 6px;
+    border-radius: 3px;
+    background:black;
+    transition: width .1s linear;
+    margin: auto;
+}
+
+.progress_fill {
+    @extend .progress;
+    background:linear-gradient(90deg, #EF5F5F 0%, #823030 82.68%);
+    position: absolute;
+    width: 0px;
+}
+
+.recording_bar {
+    @include flexCenter();
+    gap: 10px;
+    margin: 0 100px;
 }
