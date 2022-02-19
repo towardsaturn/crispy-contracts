@@ -60,7 +60,7 @@
   margin: -27.5px -27.5px;
   content: "";
   -webkit-transform: translate(-3px, -3px);
-  transform: translate(-3px, -3px);
+          transform: translate(-3px, -3px);
   border-radius: 50%;
   border: 3px solid #fbfbfb;
   cursor: pointer;

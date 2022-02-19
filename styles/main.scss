@@ -50,6 +50,13 @@ main {
         bottom: -80px;
         right: -180px;
     }
+    .error_msg {
+        color: $red;
+        display: none;
+    }
+    button {
+        @include defaultButton();
+    }
 }
 
 nav {

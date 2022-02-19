@@ -61,7 +61,7 @@
   margin: -27.5px -27.5px;
   content: "";
   -webkit-transform: translate(-3px, -3px);
-  transform: translate(-3px, -3px);
+          transform: translate(-3px, -3px);
   border-radius: 50%;
   border: 3px solid #fbfbfb;
   cursor: pointer;
@@ -184,6 +184,30 @@ main img {
   position: absolute;
   bottom: -80px;
   right: -180px;
+}
+
+main .error_msg {
+  color: #e77979;
+  display: none;
+}
+
+main button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 14px 45px;
+  background: #453be7;
+  color: #fbfbfb;
 }
 
 nav {
