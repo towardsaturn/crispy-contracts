@@ -1,11 +1,83 @@
 @import './basics.scss';
+@import './record.scss';
+
+html {
+    height: 100%;
+}
 
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: $pageBackground;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    @include rubikDefault(16px);
 }
 
 main {
-    background-color: $backgroundColor;
+    height: 70%;
+    background-color: $mainBackground;
+    mix-blend-mode: normal;
+    border-radius: 20px;
+    margin: 0 250px;
+    padding: 20px 200px;
+    h2 {
+        font-size: 60px;
+        margin: 20px 0 0 10px;
+    }
+    .example {
+        margin-top: 30px;
+        font-weight: 600;
+    }
+    .example_desc {
+        margin-bottom: 80px;
+    }
+    .small_font {
+        font-size: 12px;
+    }
+    span {
+        color: $textHighlight;
+        font-weight: bold;
+    }
+    text-align: center;
+    .image {
+        position: relative;
+    }
+    img {
+        position: absolute;
+        bottom: -132px;
+        right: -180px;
+    }
+}
+
+nav {
+    ul {
+        @include ulSetup();
+        @include flexCenter();
+    }
+    li a {
+        font-size: 20px;
+        color: $textHighlight;
+        text-align: center;
+        padding: 0 16px;
+        text-decoration: none;
+    }
+    .flex {
+        @include flexCenter();
+        justify-content: end;
+        margin-left: auto;
+    }
+    h1 {
+        @include robotoDefault(40px);
+    }
+    margin: -30px 70px -30px 10px;
+}
+
+footer {
+    @include flexCenter();
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
 }

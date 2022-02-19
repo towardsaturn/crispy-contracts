@@ -1,0 +1,90 @@
+$white: rgba(251, 251, 251, 1);
+$red: rgba(231, 121, 121, 1);
+
+$cont-size: 60px;
+$outer-size: $cont-size - 5;
+$inner-size: $outer-size - 30;
+$border-size: 3px;
+$sec: 1s;
+$bezier: cubic-bezier(0.4, -0.9, 0.9, 1);
+
+@mixin animation($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation-use($name, $time, $easing) {
+    animation: $name $time infinite $easing;
+}
+
+@mixin pseudo($content) {
+    position: relative;
+    content: $content;
+}
+
+@mixin center($val) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: $val;
+    height: $val;
+    margin: -$val/2 0 -$val/2;
+}
+
+@mixin delay($time) {
+    animation-delay: $time;
+}
+
+@mixin once() {
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@include animation(stop) {
+    70% {
+        border-radius: 6px;
+        @include center($inner-size - 10);
+    }
+    100% {
+        border-radius: 6px;
+        @include center($inner-size - 5)
+    }
+}
+
+.recorder-container {
+    position: relative;
+    width: $cont-size;
+    height: $cont-size;
+    margin: auto;
+
+    #btn {
+        display: none;
+
+        & + label:before {
+            @include center($outer-size);
+            content: "";
+            -webkit-transform: translate(-$border-size, -$border-size);
+                -ms-transform: translate(-$border-size, -$border-size);
+                    transform: translate(-$border-size, -$border-size);
+                        border-radius: 50%;
+                        border: $border-size solid $white;
+                        cursor: pointer;
+                        }
+
+        & + label:after {
+            @include center($inner-size);
+            content: "";
+            border-radius: $inner-size/2;
+            background: $red;
+            cursor: pointer;
+        }
+
+        &:checked {
+            & + label:after {
+                @include animation-use(stop, 0.5*$sec, $bezier);
+                @include once();
+            }
+        }
+    }
+}

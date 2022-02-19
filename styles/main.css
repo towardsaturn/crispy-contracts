@@ -1,10 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+@-webkit-keyframes stop {
+  70% {
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    margin: -7.5px -7.5px;
+  }
+  100% {
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px -10px;
+  }
+}
+@keyframes stop {
+  70% {
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    margin: -7.5px -7.5px;
+  }
+  100% {
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px -10px;
+  }
+}
+
+.recorder-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+}
+
+.recorder-container #btn {
+  display: none;
+}
+
+.recorder-container #btn + label:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 55px;
+  height: 55px;
+  margin: -27.5px -27.5px;
+  content: "";
+  -webkit-transform: translate(-3px, -3px);
+  transform: translate(-3px, -3px);
+  border-radius: 50%;
+  border: 3px solid #fbfbfb;
+  cursor: pointer;
+}
+
+.recorder-container #btn + label:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  margin: -12.5px -12.5px;
+  content: "";
+  border-radius: 12.5px;
+  background: #e77979;
+  cursor: pointer;
+}
+
+.recorder-container #btn:checked + label:after {
+  -webkit-animation: stop 0.5s infinite cubic-bezier(0.4, -0.9, 0.9, 1);
+          animation: stop 0.5s infinite cubic-bezier(0.4, -0.9, 0.9, 1);
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, from(#201e29), color-stop(167.58%, rgba(0, 0, 0, 0)));
+  background: linear-gradient(180deg, #201e29 0%, rgba(0, 0, 0, 0) 167.58%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fbfbfb;
 }
 
 main {
-  background-color: #201e29;
+  height: 70%;
+  background-color: #474a61;
+  mix-blend-mode: normal;
+  border-radius: 20px;
+  margin: 0 250px;
+  padding: 20px 200px;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 60px;
+  margin: 20px 0 0 10px;
+}
+
+main .example {
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+main .example_desc {
+  margin-bottom: 80px;
+}
+
+main .small_font {
+  font-size: 12px;
+}
+
+main span {
+  color: #6665d6;
+  font-weight: bold;
+}
+
+main .image {
+  position: relative;
+}
+
+main img {
+  position: absolute;
+  bottom: -132px;
+  right: -180px;
+}
+
+nav {
+  margin: -30px 70px -30px 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav li a {
+  font-size: 20px;
+  color: #6665d6;
+  text-align: center;
+  padding: 0 16px;
+  text-decoration: none;
+}
+
+nav .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-left: auto;
+}
+
+nav h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #fbfbfb;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */
