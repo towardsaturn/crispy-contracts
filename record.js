@@ -17,7 +17,7 @@ const start = () => {
 const stop = () => {
     isRunning = false;
     clearInterval(interval);
-    time_desc[0].innerText = "CLICK TO CONTINUE YOUR RECORDING OR YOU CAN SUBMIT BELOW"
+    time_desc[0].innerText = "CLICK TO RE-RECORD OR YOU CAN SUBMIT BELOW"
 }
 
 const forceStop = () => {

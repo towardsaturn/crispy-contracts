@@ -1,0 +1,24 @@
+@import './basics.scss';
+$gradient: linear-gradient(#453BE7 12.02%, rgba(102, 101, 214, 0) 67.66%);
+
+.loader {
+  background: $gradient;
+  /* Show only 10px from the border */
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 20px),#fff 0);
+          mask:radial-gradient(farthest-side,transparent calc(100% - 20px),#fff 0);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;  
+  animation: loader 2s linear infinite; 
+  position: relative;
+  margin: 50px auto;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

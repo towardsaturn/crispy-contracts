@@ -1,49 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
 @-webkit-keyframes stop {
   70% {
-    border-radius: 6px;
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    margin: -6.5px -6.5px;
+  }
+  100% {
+    border-radius: 2px;
     position: absolute;
     left: 50%;
     top: 50%;
     width: 15px;
     height: 15px;
     margin: -7.5px -7.5px;
-  }
-  100% {
-    border-radius: 6px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px -10px;
   }
 }
 @keyframes stop {
   70% {
-    border-radius: 6px;
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    margin: -6.5px -6.5px;
+  }
+  100% {
+    border-radius: 2px;
     position: absolute;
     left: 50%;
     top: 50%;
     width: 15px;
     height: 15px;
     margin: -7.5px -7.5px;
-  }
-  100% {
-    border-radius: 6px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px -10px;
   }
 }
 
 .recorder-container {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
   margin: auto;
 }
 
@@ -55,9 +55,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 55px;
-  height: 55px;
-  margin: -27.5px -27.5px;
+  width: 30px;
+  height: 30px;
+  margin: -15px -15px;
   content: "";
   -webkit-transform: translate(-3px, -3px);
           transform: translate(-3px, -3px);
@@ -70,11 +70,11 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 25px;
-  height: 25px;
-  margin: -12.5px -12.5px;
+  width: 20px;
+  height: 20px;
+  margin: -10px -10px;
   content: "";
-  border-radius: 12.5px;
+  border-radius: 10px;
   background: #e77979;
   cursor: pointer;
 }

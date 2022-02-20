@@ -19,10 +19,14 @@ $rubik: 'Rubik', sans-serif;
 }
 
 @mixin defaultButton {
-    @include flexCenter();
-    padding: 14px 45px;
     background: $buttonBackground;
     color: $textColor;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    width: 190px;
+    padding: 15px 0px;
+    margin: 30px 10px 0 10px;
 }
 
 @mixin ulSetup {

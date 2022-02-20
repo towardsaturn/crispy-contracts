@@ -13,7 +13,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
-    @include rubikDefault(16px);
+    @include rubikDefault(15px);
 }
 
 main {
@@ -24,7 +24,7 @@ main {
     margin: 0 250px;
     padding: 20px 200px;
     h2 {
-        font-size: 60px;
+        font-size: 50px;
         margin: 20px 0 0 10px;
     }
     .example {
@@ -47,8 +47,10 @@ main {
     }
     img {
         position: absolute;
-        bottom: -80px;
-        right: -180px;
+        bottom: -78px;
+        right: -190px;
+        width: 150px;
+        height: auto;
     }
     .error_msg {
         color: $red;
@@ -56,6 +58,11 @@ main {
     }
     button {
         @include defaultButton();
+    }
+    a {
+        text-decoration: none;
+        font-family: $rubik;
+        color: $textColor;
     }
 }
 
