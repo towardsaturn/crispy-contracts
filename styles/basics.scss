@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap');
+
+$black: rgba(32, 30, 41, 1);
+$pageBackground: linear-gradient(180deg, $black 0%, rgba(0, 0, 0, 0) 167.58%);
+$buttonBackground: rgba(69, 59, 231, 1);
+$textHighlight: rgba(102, 101, 214, 1);
+$mainBackground: rgba(71, 74, 97, 1);
+$textColor: rgba(251, 251, 251, 1);
+
+$roboto: 'Roboto', sans-serif;
+$rubik: 'Rubik', sans-serif;
+
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@mixin defaultButton {
+    background: $buttonBackground;
+    color: $textColor;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    width: 190px;
+    padding: 15px 0px;
+    margin: 30px 10px 0 10px;
+}
+
+@mixin ulSetup {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+}
+
+@mixin rubikDefault($fsize) {
+    font-family: $rubik;
+    font-weight: 500;
+    font-size: $fsize;
+    color: $textColor;
+}
+
+@mixin robotoDefault($fsize) {
+    font-family: $roboto;
+    font-weight: 400;
+    font-size: $fsize;
+    color: $textColor;
+}

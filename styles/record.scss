@@ -1,0 +1,112 @@
+@import './basics.scss';
+
+$white: rgba(251, 251, 251, 1);
+$red: rgba(231, 121, 121, 1);
+
+$cont-size: 35px;
+$outer-size: $cont-size - 5;
+$inner-size: $outer-size - 10;
+$border-size: 3px;
+$sec: 1s;
+$bezier: cubic-bezier(0.4, -0.9, 0.9, 1);
+
+@mixin animation($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation-use($name, $time, $easing) {
+    animation: $name $time infinite $easing;
+}
+
+@mixin pseudo($content) {
+    position: relative;
+    content: $content;
+}
+
+@mixin center($val) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: $val;
+    height: $val;
+    margin: -$val/2 0 -$val/2;
+}
+
+@mixin delay($time) {
+    animation-delay: $time;
+}
+
+@mixin once() {
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@include animation(stop) {
+    70% {
+        border-radius: 2px;
+        @include center($inner-size - 7);
+    }
+    100% {
+        border-radius: 2px;
+        @include center($inner-size - 5)
+    }
+}
+
+.recorder-container {
+    position: relative;
+    width: $cont-size;
+    height: $cont-size;
+    margin: auto;
+
+    #record {
+        display: none;
+
+        & + label:before {  
+            @include center($outer-size);
+            content: "";
+            transform: translate(-$border-size, -$border-size);
+            border-radius: 50%;
+            border: $border-size solid $white;
+            cursor: pointer;
+        }
+
+        & + label:after {
+            @include center($inner-size);
+            content: "";
+            border-radius: $inner-size/2;
+            background: $red;
+            cursor: pointer;
+        }
+
+        &:checked {
+            & + label:after {
+                @include animation-use(stop, 0.5*$sec, $bezier);
+                @include once();
+            }
+        }
+    }
+}
+
+.progress {
+    width: 350px;
+    height: 6px;
+    border-radius: 3px;
+    background:black;
+    transition: width .1s linear;
+    margin: auto;
+}
+
+.progress_fill {
+    @extend .progress;
+    background:linear-gradient(90deg, #EF5F5F 0%, #823030 82.68%);
+    position: absolute;
+    width: 0px;
+}
+
+.recording_bar {
+    @include flexCenter();
+    gap: 10px;
+    margin: 0 100px;
+}

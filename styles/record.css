@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+@-webkit-keyframes stop {
+  70% {
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    margin: -6.5px -6.5px;
+  }
+  100% {
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    margin: -7.5px -7.5px;
+  }
+}
+@keyframes stop {
+  70% {
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    margin: -6.5px -6.5px;
+  }
+  100% {
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    margin: -7.5px -7.5px;
+  }
+}
+
+.recorder-container {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  margin: auto;
+}
+
+.recorder-container #record {
+  display: none;
+}
+
+.recorder-container #record + label:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px -15px;
+  content: "";
+  -webkit-transform: translate(-3px, -3px);
+          transform: translate(-3px, -3px);
+  border-radius: 50%;
+  border: 3px solid #fbfbfb;
+  cursor: pointer;
+}
+
+.recorder-container #record + label:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px -10px;
+  content: "";
+  border-radius: 10px;
+  background: #e77979;
+  cursor: pointer;
+}
+
+.recorder-container #record:checked + label:after {
+  -webkit-animation: stop 0.5s infinite cubic-bezier(0.4, -0.9, 0.9, 1);
+          animation: stop 0.5s infinite cubic-bezier(0.4, -0.9, 0.9, 1);
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.progress, .progress_fill {
+  width: 350px;
+  height: 6px;
+  border-radius: 3px;
+  background: black;
+  -webkit-transition: width .1s linear;
+  transition: width .1s linear;
+  margin: auto;
+}
+
+.progress_fill {
+  background: -webkit-gradient(linear, left top, right top, from(#EF5F5F), color-stop(82.68%, #823030));
+  background: linear-gradient(90deg, #EF5F5F 0%, #823030 82.68%);
+  position: absolute;
+  width: 0px;
+}
+
+.recording_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+  margin: 0 100px;
+}
+/*# sourceMappingURL=record.css.map */
