@@ -119,17 +119,33 @@ function timer() {
     }
 }
 
-function sendBlob() {
-    const data = new FormData();
-    data.append('file', audioBlob);
-    console.log(audioBlob);
+async function sendBlob() {
+    const formData = new FormData();
+
+    function uploadSoundData(blob) {
+        const filename = "sound-file-" + new Date().getTime() + ".wav";
+        const formData = new FormData();
+        formData.append("audio_data", blob, filename);
+
+        fetch('http://localhost:3000/notes', {
+            method: 'POST',
+            body: formData
+        }).then(async result => {
+            document.getElementById("output").innerHTML = await result.text();
+        }).catch(error => {
+            document.getElementById("output").innerHTML = "An error occurred: " + error;
+        })
+    }
+    const filename = "sound-file-" + new Date().getTime() + ".wav";
+    console.log(filename);
+    formData.append("audio_data", audioBlob, filename);
+    console.log(formData);
     // let request = new XMLHttpRequest();
     // request.open("POST", "http://localhost:3000/uploadVoiceClip");
     // request.send(audioBlob);
-    fetch(`http://localhost:3000/uploadVoiceClip`, { method: "POST", body: data })
-        .then(response => console.log(response.text()))
-        .catch(err => {
-            alert(err);
-        });
+    // data.append('test', 'brian');
+    // await fetch(`http://localhost:3000/uploadVoiceClip`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: "hi" });
+    let res = await fetch('http://localhost:3000/uploadVoiceClip', { method: 'post', body: formData });
+    console.log(res);
     // axios.post('http://localhost:3000/uploadVoiceClip', data);
 }

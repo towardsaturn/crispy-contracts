@@ -4,6 +4,15 @@ const hedera = require("./hedera")
 const { Configuration, OpenAIApi } = require("openai");
 const { transcribeAudio } = require('./assemblyai');
 const { parseLoanDetails } = require('./openai');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: './sound_files/',
+    filename: function(req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+const upload = multer({ storage: storage });
 const app = express();
 const port = 3000;
 require("dotenv").config();
@@ -29,8 +38,14 @@ app.post('/getBalance', async(req, res) => {
     res.send("The account balance is: " + accountBalance.hbars.toTinybars() + " tinybar.");
 });
 
-app.post('/uploadVoiceClip', async(req, res) => {
-    console.log(req.body);
+app.post('/uploadVoiceClip', upload.single("audio_data"), async(req, res) => {
+    // console.log(req.file);
+    let result = await transcribeAudio(req.file.path);
+    console.log(result);
+    let parsedData = await parseLoanDetails(result.text);
+    console.log(parsedData);
+    res.send(parsedData);
+    // console.log(result);
 });
 
 app.listen(port, () => {
