@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
 @-webkit-keyframes stop {
   70% {
     border-radius: 2px;
@@ -289,4 +290,18 @@ footer {
   bottom: 10px;
   width: 100%;
 }
-/*# sourceMappingURL=main.css.map */
+
+main .congrats {
+  position: static;
+  width: 300px;
+  height: auto;
+}
+
+main .close {
+  position: absolute;
+  width: 20px;
+  height: auto;
+  top: 125px;
+  right: 280px;
+}
+/*# sourceMappingURL=thankyou.css.map */
