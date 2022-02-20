@@ -135,7 +135,7 @@ async function sendBlob() {
     <p>Your contract is being generated</p>
     <div class="loader"><span></span></div>`;
 
-    fetch('http://localhost:3000/uploadVoiceClip', { method: 'post', body: formData })
+    fetch('/uploadVoiceClip', { method: 'post', body: formData })
         .then(r => r.json())
         .then(r => {
             window.location = r.redirect;

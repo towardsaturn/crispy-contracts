@@ -6,8 +6,6 @@ const { parseLoanDetails } = require('./openai');
 const multer = require('multer');
 const url = require('url');
 
-
-
 const storage = multer.diskStorage({
     destination: './sound_files/',
     filename: function(req, file, cb) {
