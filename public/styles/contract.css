@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+main {
+  padding: 30px 100px 0 100px;
+  margin: -50px 250px;
+}
+
+main h2 {
+  color: #c4c4c4;
+}
+
+main img {
+  position: relative;
+  height: 20px;
+  width: auto;
+  top: -40px;
+  right: -20px;
+  float: right;
+}
+
+main .firstgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+main .contract_element {
+  width: 50%;
+  z-index: 5;
+}
+
+main input[type="text"], main input[type="date"] {
+  width: 80%;
+  padding: 15px 20px;
+  font-size: 20px;
+  margin: 8px 0 30px 0;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #c4c4c4;
+  color: #474a61;
+  border-radius: 10px;
+  position: relative;
+  float: left;
+}
+
+main input[type="date"] {
+  width: 176%;
+}
+
+main input[type="reset"] {
+  background: #453be7;
+  color: #fbfbfb;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  width: 190px;
+  padding: 15px 0px;
+  margin: 30px 10px 0 10px;
+  cursor: pointer;
+  background-color: transparent;
+  position: relative;
+  bottom: -12px;
+  right: -200px;
+}
+
+main #submitBtn {
+  background: #453be7;
+  color: #fbfbfb;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  width: 190px;
+  padding: 15px 0px;
+  margin: 30px 10px 0 10px;
+  cursor: pointer;
+  position: relative;
+  float: right;
+  right: -110px;
+  bottom: 65px;
+}
+
+main label {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: #fbfbfb;
+  color: #6665d6;
+  position: relative;
+  float: left;
+  font-weight: 600;
+}
+
+main .modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+main .modal-content {
+  background-color: #474a61;
+  border: none;
+  width: 65%;
+  height: 65%;
+  margin: 7% auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+main .modal-content h3 {
+  color: #fbfbfb;
+  font-size: 20px;
+}
+
+main .modal-content img {
+  margin: auto;
+  margin-top: 15px;
+  float: none;
+  position: static;
+  height: 60%;
+  width: auto;
+}
+
+main #yes {
+  cursor: pointer;
+  background-color: #453be7;
+  color: #fbfbfb;
+}
+
+main #no {
+  cursor: pointer;
+  background-color: #fbfbfb;
+  color: #453be7;
+}
+/*# sourceMappingURL=contract.css.map */

@@ -10,3 +10,17 @@ function enable() {
     //     }
   }
 }
+
+var modal = document.getElementById("modal");
+var noBtn = document.getElementById("no");
+var yesBtn = document.getElementById("yes");
+var submit = document.getElementById("submitBtn");
+
+submit.onclick = function() {
+  console.log("test");
+  modal.style.display = "block";
+}
+
+noBtn.onclick = function() {
+  modal.style.display = "none";
+}

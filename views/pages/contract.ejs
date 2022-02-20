@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/record.css" />
     <link rel="stylesheet" href="../styles/contract.css" />
-    <script src="../tools.js" defer></script>
+    <script src="../scripts/tools.js" defer></script>
     <title>Atlas</title>
   </head>
   <body>
@@ -25,6 +25,16 @@
       </ul>
     </nav>
     <main>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <img src="../images/question.png" alt="Question">
+          <h3>Are you sure that all of the information on the Agreement are correct?</h3>
+          <div class="submit_area">
+          <button id="no">No</button>
+          <button id="yes">Yes</button>
+        </div>
+        </div>
+      </div>
       <h2>Loan Agreement</h2>
       <i onclick="enable()"><img src="../images/pencil.png" /></i>
       <form>
@@ -62,11 +72,9 @@
           <label for="duedate">Due Date: </label><br />
           <input type="date" id="duedate" name="duedate" value="" disabled />
         </div>
-        <div class="submit_area">
-          <input type="reset" value="Reset" />
-          <input type="submit" value="Submit" />
-        </div>
+        <input type="reset" value="Reset" />
       </form>
+      <button id="submitBtn">Submit</button>
     </main>
 
     <footer>
