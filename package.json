@@ -1,32 +1,33 @@
 {
-  "name": "crispy-contracts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brianmakesthings/crispy-contracts.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/brianmakesthings/crispy-contracts/issues"
-  },
-  "homepage": "https://github.com/brianmakesthings/crispy-contracts#readme",
-  "dependencies": {
-    "@hashgraph/sdk": "^2.9.1",
-    "body-parser": "^1.19.2",
-    "dotenv": "^16.0.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.3",
-    "multer": "^1.4.4",
-    "openai": "^2.0.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+    "name": "crispy-contracts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/brianmakesthings/crispy-contracts.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/brianmakesthings/crispy-contracts/issues"
+    },
+    "homepage": "https://github.com/brianmakesthings/crispy-contracts#readme",
+    "dependencies": {
+        "@hashgraph/sdk": "^2.9.1",
+        "body-parser": "^1.19.2",
+        "dotenv": "^16.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "multer": "^1.4.4",
+        "openai": "^2.0.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
 }
