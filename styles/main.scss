@@ -42,19 +42,11 @@ main {
         font-weight: bold;
     }
     text-align: center;
-    .image {
-        position: relative;
-    }
-    img {
-        position: absolute;
-        bottom: -78px;
-        right: -190px;
-        width: 150px;
-        height: auto;
-    }
     .error_msg {
         color: $red;
         display: none;
+        font-size: 10px;
+        margin: -4px 0;
     }
     button {
         @include defaultButton();
@@ -64,6 +56,17 @@ main {
         font-family: $rubik;
         color: $textColor;
     }
+}
+
+.image {
+    position: relative;
+}
+img {
+    position: absolute;
+    bottom: -22px;
+    right: 260px;
+    width: 150px;
+    height: auto;
 }
 
 nav {

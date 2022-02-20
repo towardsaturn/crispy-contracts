@@ -176,21 +176,11 @@ main .span {
   font-weight: bold;
 }
 
-main .image {
-  position: relative;
-}
-
-main img {
-  position: absolute;
-  bottom: -78px;
-  right: -190px;
-  width: 150px;
-  height: auto;
-}
-
 main .error_msg {
   color: #e77979;
   display: none;
+  font-size: 10px;
+  margin: -4px 0;
 }
 
 main button {
@@ -208,6 +198,18 @@ main a {
   text-decoration: none;
   font-family: "Rubik", sans-serif;
   color: #fbfbfb;
+}
+
+.image {
+  position: relative;
+}
+
+img {
+  position: absolute;
+  bottom: -22px;
+  right: 260px;
+  width: 150px;
+  height: auto;
 }
 
 nav {

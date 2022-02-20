@@ -1,78 +1,118 @@
 let checkBox = document.getElementById("record");
-const minutes = document.querySelector('.minutes');
-const seconds = document.querySelector('.seconds');
-let time_desc = document.getElementsByClassName("small_font");
+const minutes = document.querySelector(".minutes");
+const seconds = document.querySelector(".seconds");
+let time_desc = document.getElementsByClassName("small_font")[0];
+let error = document.getElementsByClassName("error_msg")[0];
+let label = document.getElementById("label");
 
-let timerTime = 58;
-// change timerTime later
+let timerTime = 0;
+let timer_status = 0;
 let interval;
 
-const start = () => {
+const recordAudio = () =>
+  new Promise(async (resolve) => {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const mediaRecorder = new MediaRecorder(stream);
+    const audioChunks = [];
+
+    mediaRecorder.addEventListener("dataavailable", (event) => {
+      audioChunks.push(event.data);
+    });
+
+    let start = () => {
+      mediaRecorder.start();
+      interval = setInterval(incrementTimer, 1000);
+      error.style.display = "none";
+      timer();
+    };
+
+    const stop = () =>
+      new Promise((resolve) => {
+        mediaRecorder.addEventListener("stop", () => {
+          const audioBlob = new Blob(audioChunks, { type: "audio/mpeg" });
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audio = new Audio(audioUrl);
+          const play = () => audio.play();
+          resolve({ audioBlob, audioUrl, play });
+          console.log(audioUrl);
+        });
+        mediaRecorder.stop();
+        timer();
+        timer_status = 0;
+        clearInterval(interval);
+        time_desc.innerText = "CLICK TO RE-RECORD OR YOU CAN SUBMIT BELOW";
+    });
+
+    resolve({ start, stop });
+  });
+
+const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
+
+let isRunning = false;
+let recorder;
+let audio;
+
+const handleAction = async () => {
+  if (!isRunning) {
+    recorder = await recordAudio();
+    label.disabled = true;
+    recorder.start();
     isRunning = true;
-    interval = setInterval(incrementTimer, 1000);
-    let error = document.getElementsByClassName("error_msg");
-    error[0].style.display = "none";
-}
-
-const stop = () => {
+  } else {
+    audio = await recorder.stop();
+    label.disabled = false;
     isRunning = false;
-    clearInterval(interval);
-    time_desc[0].innerText = "CLICK TO RE-RECORD OR YOU CAN SUBMIT BELOW"
-}
-
-const forceStop = () => {
-    stop();
+    timerTime = 0;
     reset();
-    let error = document.getElementsByClassName("error_msg");
-    error[0].style.display = "block";
-    let label = document.getElementById("label");
-    label.click();
-    time_desc[0].innerText = "CLICK TO RE-RECORD";
-}
+  }
+};
+
+label.addEventListener("click", handleAction);
+
+forceStop = () => {
+    handleAction();
+    reset();
+    error.style.display = "block";
+    time_desc.innerText = "CLICK TO RE-RECORD";
+};
 
 const reset = () => {
-    minutes.innerText = '00';
-    seconds.innerText = '00';
-    var progress_fill = document.getElementById("progress_fill");
-    progress_fill.style.width = '0px';
-}
+  minutes.innerText = "00";
+  seconds.innerText = "00";
+  var progress_fill = document.getElementById("progress_fill");
+  progress_fill.style.width = "0px";
+};
 
 const pad = (number) => {
-    return (number < 10) ? '0' + number : number;
-}
+  return number < 10 ? "0" + number : number;
+};
 
-let timer_status = 0;
 const incrementTimer = () => {
-    timerTime++;
+  timerTime++;
 
-    if (timerTime > 60) {
-        forceStop();
-        timerTime = 58;
-        // change timerTime later
-        timer_status = 0;
-    }
+  if (timerTime > 60) {
+    forceStop();
+    timerTime = 0;
+    timer_status = 0;
+  }
 
-    const numberMinutes = Math.floor(timerTime / 60);
-    const numberSeconds = timerTime % 60;
-  
-    minutes.innerText = pad(numberMinutes);
-    seconds.innerText = pad(numberSeconds);
+  const numberMinutes = Math.floor(timerTime / 60);
+  const numberSeconds = timerTime % 60;
 
-    var progress_fill = document.getElementById("progress_fill");
-    var increment = 1/60;
-    pixel = increment * timerTime * 350;
-    progress_fill.style.width = pixel+'px';
-}
+  minutes.innerText = pad(numberMinutes);
+  seconds.innerText = pad(numberSeconds);
+
+  var progress_fill = document.getElementById("progress_fill");
+  var increment = 1 / 60;
+  pixel = increment * timerTime * 350;
+  progress_fill.style.width = pixel + "px";
+};
 
 function timer() {
-    if (timer_status == 0) {
-        start();
-        time_desc[0].innerText = "CLICK TO STOP THE RECORDING";
-        timer_status++;
-        console.log("start");
-    } else {
-        stop();
-        timer_status--;
-        console.log("stop");
-    }
+  if (timer_status == 0) {
+    time_desc.innerText = "CLICK TO STOP THE RECORDING";
+    timer_status++;
+  } else {
+    timer_status--;
+  }
 }
