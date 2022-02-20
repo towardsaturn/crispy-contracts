@@ -24,6 +24,14 @@ app.get('/', async(req, res) => {
     res.render('pages/index');
 });
 
+app.get("/loading", async (req, res) => {
+  res.render("pages/loading");
+});
+
+app.get("/contract", async (req, res) => {
+  res.render("pages/contract");
+});
+
 app.post('/getBalance', async(req, res) => {
     hederaClient = await hedera.getClient();
     const accountBalance = await new AccountBalanceQuery()
