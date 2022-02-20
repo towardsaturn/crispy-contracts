@@ -1,0 +1,16 @@
+@import "./basics.scss";
+@import "./main.scss";
+main {
+    .congrats {
+        position: static;
+        width: 300px;
+        height: auto;
+    }
+    .close {
+        position: absolute;
+        width: 20px;
+        height: auto;
+        top: 125px;
+        right: 280px;
+    }
+}

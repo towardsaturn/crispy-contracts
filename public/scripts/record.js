@@ -119,17 +119,28 @@ function timer() {
     }
 }
 
-function sendBlob() {
-    const data = new FormData();
-    data.append('file', audioBlob);
-    console.log(audioBlob);
+async function sendBlob() {
+
+    const formData = new FormData();
+    const filename = "sound-file-" + new Date().getTime() + ".wav";
+    console.log(filename);
+    formData.append("audio_data", audioBlob, filename);
+    console.log(formData);
     // let request = new XMLHttpRequest();
     // request.open("POST", "http://localhost:3000/uploadVoiceClip");
     // request.send(audioBlob);
-    fetch(`http://localhost:3000/uploadVoiceClip`, { method: "POST", body: data })
-        .then(response => console.log(response.text()))
-        .catch(err => {
-            alert(err);
+    // data.append('test', 'brian');
+    // await fetch(`http://localhost:3000/uploadVoiceClip`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: "hi" });
+    document.getElementsByTagName("main")[0].innerHTML = `<h2>Hang tight</h2> 
+    <p>Your contract is being generated</p>
+    <div class="loader"><span></span></div>`;
+
+    fetch('http://localhost:3000/uploadVoiceClip', { method: 'post', body: formData })
+        .then(r => r.json())
+        .then(r => {
+            window.location = r.redirect;
         });
+
+    // window.location.href = `/contract?${res.};
     // axios.post('http://localhost:3000/uploadVoiceClip', data);
 }

@@ -7,7 +7,14 @@ async function parseLoanDetails(loanRequest) {
     });
     const openai = new OpenAIApi(configuration);
 
-    let prompt = `Convert sentence about loans into json\n\nLend Aaron $10 for one week:{"amount": 10, "duration": 7, "interest": 0}\nLet Joe borrow $100 for 31 days at 2 percent interest:{"amount": 100, "duration": 31, "interest":2.0}\nSamantha can borrow $2000 for a year at 2.45% interest:{"amount": 2000, "duration": 365, "interest":2.45}\n`;
+    let prompt =
+        `Convert sentence about loans into json
+
+Lend Aaron $10 for one week:{"name":"Aaron", "amount": 10, "duration": 7, "interest": 0}
+Let Joe borrow $100 for 31 days at 2 percent interest:{"name":"Joe", "amount": 100, "duration": 31, "interest":2.0}
+Samantha can borrow $2000 for a year at 2.45% interest:{"name":"Samantha", "amount": 2000, "duration": 365, "interest":2.45}
+I am letting Brian borrow 200 dollars if he pay me back with 10% interest by next week:{"name":"Brian", "amount":200, "duration":7, "interest":10}
+Crystal is borrowing 10 dollars from me and she's going to return my money in 2 days:{"name":"Crystal", "amount":10, "duration":2, "interest":0}`;
 
     const response = await openai.createCompletion("text-davinci-001", {
         prompt: prompt + loanRequest + ":",
