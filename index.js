@@ -40,7 +40,7 @@ app.get("/contract", async(req, res) => {
     }
 
     let interest = parseFloat(req.query.interest).toFixed(2) + "%";
-    let amount = "$" + parseFloat(req.query.amount).toFixed(2);
+    let amount = "ℏ" + parseFloat(req.query.amount).toFixed(2);
     let dueDate = (addDays(new Date().getTime(), parseInt(req.query.duration))).toISOString().substring(0, 10);
     console.log(interest, amount, dueDate);
     res.render("pages/contract", { borrower: req.query.name, interest: interest, amount: amount, dueDate: dueDate });
