@@ -6,6 +6,8 @@ $buttonBackground: rgba(69, 59, 231, 1);
 $textHighlight: rgba(102, 101, 214, 1);
 $mainBackground: rgba(71, 74, 97, 1);
 $textColor: rgba(251, 251, 251, 1);
+$formFill: rgba(196, 196, 196, 1);
+
 
 $roboto: 'Roboto', sans-serif;
 $rubik: 'Rubik', sans-serif;
@@ -13,7 +15,7 @@ $rubik: 'Rubik', sans-serif;
 
 @mixin flexCenter {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: row;
 }

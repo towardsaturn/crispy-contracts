@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/record.css" />
+    <link rel="stylesheet" href="../styles/contract.css" />
+    <script src="../tools.js" defer></script>
+    <title>Atlas</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <div>
+          <li>
+            <a href="index.html"><h1>atlas.</h1></a>
+          </li>
+        </div>
+        <div class="flex">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+    <main>
+      <h2>Loan Agreement</h2>
+      <i onclick="enable()"><img src="../images/pencil.png" /></i>
+      <form>
+        <div class="firstgroup">
+          <div class="contract_element">
+            <label for="borrower">Borrower: </label><br />
+            <input
+              type="text"
+              id="borrower"
+              name="borrower"
+              value=""
+              disabled
+            />
+          </div>
+          <div class="contract_element">
+            <label for="lender">Lender: </label><br />
+            <input type="text" id="lender" name="lender" value="" disabled />
+          </div>
+          <div class="contract_element">
+            <label for="interest">Interest: </label><br />
+            <input
+              type="text"
+              id="interest"
+              name="interest"
+              value=""
+              disabled
+            />
+          </div>
+          <div class="contract_element">
+            <label for="amount">Amount: </label><br />
+            <input type="text" id="amount" name="amount" value="" disabled />
+          </div>
+        </div>
+        <div class="contract_element">
+          <label for="duedate">Due Date: </label><br />
+          <input type="date" id="duedate" name="duedate" value="" disabled />
+        </div>
+        <div class="submit_area">
+          <input type="reset" value="Reset" />
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <p>Copyright Atlas &#169; 2022</p>
+    </footer>
+  </body>
+</html>
