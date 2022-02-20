@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +10,25 @@
     <script src="../record.js" defer></script>
     <title>Atlas</title>
 </head>
+
 <body>
     <nav>
         <ul>
             <div>
-                <li><a href="index.html"><h1>atlas.</h1></a></li>
+                <li>
+                    <a href="index.html">
+                        <h1>atlas.</h1>
+                    </a>
+                </li>
             </div>
             <div class="flex">
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-            </div>  
+            </div>
         </ul>
     </nav>
     <main>
-        <h2>Hi, there.</h2> 
+        <h2>Hi, there.</h2>
         <p>Record a short message below within one minute. Include your name, the name of the other party, amount of money, currency, interest rate and due date.</p>
         <p class="example">Example message:</p>
         <p class="example_desc">My name is <span class="span">Jake</span>. I want to lend <span class="span">fifty dollars USD</span> to <span class="span">Sasha</span> <br>with a <span class="span">3%</span> interest rate, due on <span class="span">March 20, 2022</span>.</p>
@@ -39,18 +45,19 @@
             <p>01:00</p>
         </div>
         <div class="recorder-container">
-            <input type="checkbox" id="record"/>
+            <input type="checkbox" id="record" />
             <label for="record" id="label"></label>
         </div>
         <p class="small_font">CLICK TO RECORD</p>
         <button onclick="audio.play()">Play Recording</button>
-        <button><a href="loading.html">Submit</a></button>
+        <button onclick="sendBlob()">Submit</button>
     </main>
     <div class="image">
         <img class="dogcoin" src="../images/dogcoin.png" alt="coin">
     </div>
     <footer>
-        <p>Copyright Atlas 	&#169; 2022</p>
+        <p>Copyright Atlas &#169; 2022</p>
     </footer>
 </body>
+
 </html>
