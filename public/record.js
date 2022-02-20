@@ -120,22 +120,8 @@ function timer() {
 }
 
 async function sendBlob() {
+
     const formData = new FormData();
-
-    function uploadSoundData(blob) {
-        const filename = "sound-file-" + new Date().getTime() + ".wav";
-        const formData = new FormData();
-        formData.append("audio_data", blob, filename);
-
-        fetch('http://localhost:3000/notes', {
-            method: 'POST',
-            body: formData
-        }).then(async result => {
-            document.getElementById("output").innerHTML = await result.text();
-        }).catch(error => {
-            document.getElementById("output").innerHTML = "An error occurred: " + error;
-        })
-    }
     const filename = "sound-file-" + new Date().getTime() + ".wav";
     console.log(filename);
     formData.append("audio_data", audioBlob, filename);
@@ -145,7 +131,16 @@ async function sendBlob() {
     // request.send(audioBlob);
     // data.append('test', 'brian');
     // await fetch(`http://localhost:3000/uploadVoiceClip`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: "hi" });
-    let res = await fetch('http://localhost:3000/uploadVoiceClip', { method: 'post', body: formData });
-    console.log(res);
+    document.getElementsByTagName("main")[0].innerHTML = `<h2>Hang tight</h2> 
+    <p>Your contract is being generated</p>
+    <div class="loader"><span></span></div>`;
+
+    fetch('http://localhost:3000/uploadVoiceClip', { method: 'post', body: formData })
+        .then(r => r.json())
+        .then(r => {
+            window.location = r.redirect;
+        });
+
+    // window.location.href = `/contract?${res.};
     // axios.post('http://localhost:3000/uploadVoiceClip', data);
 }
